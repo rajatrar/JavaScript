@@ -2,7 +2,6 @@
 let number = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highscore = localStorage.getItem('highscore') ? Number(localStorage.getItem('highscore')) : 0;
-console.log(number);
 document.querySelector('.highscore').textContent = highscore;
 
 document.querySelector('.check').addEventListener('click',function() {
@@ -43,3 +42,14 @@ document.querySelector('.again').addEventListener('click',function() {
     document.querySelector('body').style.backgroundColor = '#222';
     document.querySelector('.highscore').textContent = highscore;
 });
+
+// Add keypress event for Enter key to trigger check
+addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        document.querySelector('.check').click();
+    }
+    if (event.key === 'Escape') {
+        document.querySelector('.again').click();
+    }
+});
+
